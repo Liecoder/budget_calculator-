@@ -1,0 +1,31 @@
+INPUT budget
+OUTPUT "Your budget is: ", budget
+
+DECLARE totalCost
+SET totalCost TO 0
+
+INPUT numberOfItems
+OUTPUT "Your total items are: ", numberOfItems
+
+FOR i FROM 1 TO numberOfItems
+    INPUT itemName
+    INPUT itemCost
+    OUTPUT "Your item name: ", itemName
+    OUTPUT "Your item cost: ", itemCost
+    totalCost = totalCost + itemCost
+END FOR
+
+OUTPUT "Your total expenses are: ", totalCost
+
+DECLARE moneyLeft
+moneyLeft = budget - totalCost
+
+OUTPUT "You have ", moneyLeft, " left in your budget."
+
+IF moneyLeft < 0
+    OUTPUT "You have exceeded your budget."
+ELSE IF moneyLeft == 0
+    OUTPUT "You have used up your entire budget."
+ELSE
+    OUTPUT "You have money left in your budget."
+END IF
